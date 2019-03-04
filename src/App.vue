@@ -1,29 +1,37 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+      <NavBar>
+
+        <router-link to="/" 
+            class="block mt-4 lg:inline-block lg:mt-0 
+            text-pink hover:text-white mr-4 no-underline">Home</router-link>
+        <router-link to="/about" 
+            class="block mt-4 lg:inline-block lg:mt-0 
+            text-pink hover:text-white mr-4 no-underline">About</router-link>
+
+      </NavBar>
+
+      
     </div>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  import NavBar from '@/components/UI/Navbar'
+  export default {
+
+    components: {
+      NavBar
+    },
+
+    mounted() {
+      this.$store.dispatch('setLocations'),
+      this.$store.dispatch('setVehicles')
     }
+   
   }
-}
-</style>
+</script>
+

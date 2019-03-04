@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <div class="HeroBlock  h-screen">
+      <div class="flex justify-center bg-grey items-center h-64  w-full">
+
+        <ReservationForm></ReservationForm>
+
+      </div>
+
+      <div class="container">
+        <VehicleList />
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ReservationForm from '@/components/forms/ReservationForm'
+import VehicleList from '../components/VehicleList'
 
 export default {
   name: 'home',
+
   components: {
-    HelloWorld
+    VehicleList,
+    ReservationForm
   }
 }
 </script>
